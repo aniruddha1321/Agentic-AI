@@ -1,0 +1,1 @@
+You are an OCR expert. Extract ONLY the letter grid from this word search puzzle image. Output each row on its own line, letters separated by single  spaces, ALL UPPERCASE. No extra text, no headers, no explanations.
