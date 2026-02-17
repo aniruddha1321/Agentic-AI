@@ -14,8 +14,8 @@ This document describes how users (staff) interact with the Word Search Solver s
 
 | Actor | Role | Interaction |
 |-------|------|-------------|
-| **User (Staff)** | Uploads word search puzzle image | Provides input via Langflow Playground chat |
-| **System (Langflow Flow)** | Processes image, solves puzzle | Returns found words with positions and directions |
+| **User** | Uploads word search puzzle image | Provides input via Langflow Playground chat |
+| **System** | Processes image, solves puzzle | Returns found words with positions and directions |
 
 ---
 
@@ -26,26 +26,26 @@ This document describes how users (staff) interact with the Word Search Solver s
 │                     USER INTERACTION FLOW                       │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
-│  Step 1: User opens Langflow Playground                        │
-│          └── Clicks on the flow "Word Search Solver"           │
+│  Step 1: User opens Langflow Playground                         │
+│          └── Clicks on the flow "Word Search Solver"            │
 │                                                                 │
-│  Step 2: User uploads puzzle image                             │
-│          └── Supported formats: JPG, PNG, JPEG                 │
-│          └── Image should clearly show the letter grid         │
+│  Step 2: User uploads puzzle image                              │
+│          └── Supported formats: JPG, PNG, JPEG                  │
+│          └── Image should clearly show the letter grid          │
 │                                                                 │
-│  Step 3: System processes the image                            │
-│          ├── Agent (Gemini Vision) extracts letter grid (OCR)  │
-│          ├── Grid Parser structures the raw text into 2D array │
-│          └── Word Search Solver finds all target words         │
+│  Step 3: System processes the image                             │
+│          ├── Agent (Gemini Vision) extracts letter grid (OCR)   │
+│          ├── Grid Parser structures the raw text into 2D array  │
+│          └── Word Search Solver finds all target words          │
 │                                                                 │
-│  Step 4: System returns results                                │
-│          ├── Grid displayed as HTML table                      │
-│          ├── Found words highlighted with unique colors        │
-│          ├── Legend showing found words with directions        │
-│          └── List of words not found (if any)                  │
+│  Step 4: System returns results                                 │
+│          ├── Grid displayed as HTML table                       │
+│          ├── Found words highlighted with unique colors         │
+│          ├── Legend showing found words with directions         │
+│          └── List of words not found (if any)                   │
 │                                                                 │
-│  Step 5: User reviews output                                  │
-│          └── Can re-upload different image for new puzzle      │
+│  Step 5: User reviews output                                    │
+│          └── Can re-upload different image for new puzzle       │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
