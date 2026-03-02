@@ -2,7 +2,7 @@
 
 A conversational AI shopping assistant built on Amazon Bedrock Agents that helps users find gifts, manage a cart, get personalized recommendations, and receive gift wrapping ideas.
 
->#####**Workshop URL:** https://catalog.us-east-1.prod.workshops.aws/workshops/7ca892c2-91a4-47a7-a675-22c9e85b5e18/en-US/
+>**Workshop URL:** https://catalog.us-east-1.prod.workshops.aws/workshops/7ca892c2-91a4-47a7-a675-22c9e85b5e18/en-US/
 ---
 
 ### Architecture
