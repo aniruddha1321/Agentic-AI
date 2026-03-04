@@ -1,4 +1,4 @@
-# 🧩 Word Search Puzzle Solver — AWS Bedrock Flow
+# Word Search Puzzle Solver - AWS Bedrock Flow
 
 > Automatically solves Marvel-themed word search puzzles using AWS Bedrock Flows, Nova Pro OCR, and a Bedrock Agent.
 
@@ -41,54 +41,3 @@ All 4 nodes completing end-to-end:
 Found **6 of 15** Marvel Avengers words highlighted in color:
 
 ![Word Search Solution output showing highlighted grid and colored word pills](output.png)
-
----
-
-## ⚙️ AWS Setup
-
-- **S3 Bucket**: `word-search-puzzles` — upload puzzle images here
-- **Lambda**: `word-search-ocr` and `word-search-solver` (both us-east-1)
-- **Bedrock Agent**: `WordSearchAgent` with action group `SolvePuzzle`
-- **Bedrock Flow**: connects OCRLambda → WordSearchAgent → output
-
-### Environment Variables (OCR Lambda)
-| Variable | Value |
-|----------|-------|
-| `S3_BUCKET_NAME` | `word-search-puzzles` |
-
----
-
-## 🔑 IAM Permissions Required
-
-- `bedrock:InvokeModel` (Nova Pro)
-- `s3:GetObject` on the puzzle bucket
-- `bedrock:InvokeAgent` (WordSearchAgent)
-
-
----
-
-## ✅ Words Found (sample run)
-
-**Found 6 of 15:** HULK · BLACKWIDOW · BLACKPANTHER · SPIDERMAN · IRONMAN · THOR
-
----
-
-## ⚙️ AWS Setup
-
-- **S3 Bucket**: `word-search-puzzles` — upload puzzle images here
-- **Lambda**: `word-search-ocr` and `word-search-solver` (both us-east-1)
-- **Bedrock Agent**: `WordSearchAgent` with action group `SolvePuzzle`
-- **Bedrock Flow**: connects OCRLambda → WordSearchAgent → output
-
-### Environment Variables (OCR Lambda)
-| Variable | Value |
-|----------|-------|
-| `S3_BUCKET_NAME` | `word-search-puzzles` |
-
----
-
-## 🔑 IAM Permissions Required
-
-- `bedrock:InvokeModel` (Nova Pro)
-- `s3:GetObject` on the puzzle bucket
-- `bedrock:InvokeAgent` (WordSearchAgent)
