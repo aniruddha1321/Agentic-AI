@@ -14,10 +14,10 @@ The Word Search Solver is a multi-agent system built on DataStax Langflow that p
 
 ```
 ┌──────────────┐       ┌──────────────┐      ┌──────────────────┐      ┌───────────┐
-│  Chat Input  │ ────> │  OCR Agent   │ ────> │   Grid Parser    │────>│ Word Sear.│
+│  Chat Input  │ ────> │  OCR Agent   │ ────>│   Grid Parser    │────> │ Word Sear.│
 │  (Image)     │       │  (Gemini)    │      │   (Custom)       │      │  Solver   │
 └──────────────┘       └──────────────┘      └──────────────────┘      │ (Custom)  │
-                                                                       └──────────┘
+                                                                       └───────────┘
                                                                             │
                                                                             v
                                                                       ┌────────────┐
