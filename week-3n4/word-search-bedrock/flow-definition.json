@@ -1,0 +1,151 @@
+{
+    "name": "word-search-solver-flow",
+    "executionRoleArn": "",
+    "id": "",
+    "arn": "",
+    "status": "Prepared",
+    "createdAt": "2026-03-03T12:23:24.417331+00:00",
+    "updatedAt": "2026-03-04T10:45:51.578029+00:00",
+    "version": "DRAFT",
+    "definition": {
+        "nodes": [
+            {
+                "name": "FlowInputNode",
+                "type": "Input",
+                "configuration": {
+                    "input": {}
+                },
+                "outputs": [
+                    {
+                        "name": "document",
+                        "type": "String"
+                    }
+                ]
+            },
+            {
+                "name": "FlowOutputNode",
+                "type": "Output",
+                "configuration": {
+                    "output": {}
+                },
+                "inputs": [
+                    {
+                        "name": "document",
+                        "type": "String",
+                        "expression": "$.data"
+                    }
+                ]
+            },
+            {
+                "name": "OCRLambda",
+                "type": "LambdaFunction",
+                "configuration": {
+                    "lambdaFunction": {
+                        "lambdaArn": ""
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "s3_key",
+                        "type": "String",
+                        "expression": "$.data"
+                    },
+                    {
+                        "name": "words_to_find",
+                        "type": "String",
+                        "expression": "$.data"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "functionResponse",
+                        "type": "String"
+                    }
+                ]
+            },
+            {
+                "name": "WordSearchAgent",
+                "type": "Agent",
+                "configuration": {
+                    "agent": {
+                        "agentAliasArn": ""
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "agentInputText",
+                        "type": "String",
+                        "expression": "$.data"
+                    },
+                    {
+                        "name": "promptAttributes",
+                        "type": "Object",
+                        "expression": "$.data"
+                    },
+                    {
+                        "name": "sessionAttributes",
+                        "type": "Object",
+                        "expression": "$.data"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "agentResponse",
+                        "type": "String"
+                    }
+                ]
+            }
+        ],
+        "connections": [
+            {
+                "type": "Data",
+                "name": "FlowInputToOCRLambda0",
+                "source": "FlowInputNode",
+                "target": "OCRLambda",
+                "configuration": {
+                    "data": {
+                        "sourceOutput": "document",
+                        "targetInput": "s3_key"
+                    }
+                }
+            },
+            {
+                "type": "Data",
+                "name": "FlowInputToOCRLambda1",
+                "source": "FlowInputNode",
+                "target": "OCRLambda",
+                "configuration": {
+                    "data": {
+                        "sourceOutput": "document",
+                        "targetInput": "words_to_find"
+                    }
+                }
+            },
+            {
+                "type": "Data",
+                "name": "OCRLambdaToWordSearchAgent",
+                "source": "OCRLambda",
+                "target": "WordSearchAgent",
+                "configuration": {
+                    "data": {
+                        "sourceOutput": "functionResponse",
+                        "targetInput": "agentInputText"
+                    }
+                }
+            },
+            {
+                "type": "Data",
+                "name": "WordSearchAgentToFlowOutput",
+                "source": "WordSearchAgent",
+                "target": "FlowOutputNode",
+                "configuration": {
+                    "data": {
+                        "sourceOutput": "agentResponse",
+                        "targetInput": "document"
+                    }
+                }
+            }
+        ]
+    },
+    "validations": []
+}
